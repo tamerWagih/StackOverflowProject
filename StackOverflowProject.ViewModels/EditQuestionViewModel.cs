@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace StackOverflowProject.ViewModels
+{
+    public class EditQuestionViewModel
+    {
+        [Required]
+        public int QuestionID { get; set; }
+
+        [Required]
+        public string QuestionName { get; set; }
+
+        [Required]
+        public DateTime QuesionDateAndTime { get; set; }
+
+        [Required]
+        public int CategoryID { get; set; }
+    }
+}

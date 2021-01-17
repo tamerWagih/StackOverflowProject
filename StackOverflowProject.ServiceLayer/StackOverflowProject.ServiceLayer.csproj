@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="automapper" Version="10.1.1" />
+    <PackageReference Include="entityframework" Version="6.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StackOverflowProject.DomainModels\StackOverflowProject.DomainModels.csproj" />
+    <ProjectReference Include="..\StackOverflowProject.Repositories\StackOverflowProject.Repositories.csproj" />
+    <ProjectReference Include="..\StackOverflowProject.ViewModels\StackOverflowProject.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>
