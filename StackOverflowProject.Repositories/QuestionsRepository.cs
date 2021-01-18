@@ -73,7 +73,7 @@ namespace StackOverflowProject.Repositories
             Question qt = db.Questions.Where(temp => temp.QuestionID == q.QuestionID).FirstOrDefault();
             if(qt != null)
             {
-                qt.QuestioName = q.QuestioName;
+                qt.QuestionName = q.QuestionName;
                 qt.QuestionDateAndTime = q.QuestionDateAndTime;
                 qt.CategoryID = q.QuestionID;
                 db.SaveChanges();

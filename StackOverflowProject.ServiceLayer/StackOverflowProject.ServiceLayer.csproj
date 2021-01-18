@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="automapper" Version="10.1.1" />
+    <PackageReference Include="automapper" Version="7.0.1" />
     <PackageReference Include="entityframework" Version="6.2.0" />
   </ItemGroup>
 

@@ -12,7 +12,7 @@ namespace StackOverflowProject.DomainModels
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int QuestionID { get; set; }
 
-        public string QuestioName { get; set; }
+        public string QuestionName { get; set; }
 
         public DateTime QuestionDateAndTime { get; set; }
 
@@ -29,7 +29,7 @@ namespace StackOverflowProject.DomainModels
         [ForeignKey("UserID")]
         public virtual User User { get; set; }
 
-        [ForeignKey("CategorID")]
+        [ForeignKey("CategoryID")]
         public virtual Category Category { get; set; }
 
         public virtual List<Answer> Answers { get; set; }
