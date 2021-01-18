@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -15,9 +17,12 @@ namespace StackOverflowProject.ViewModels
         public string QuestionName { get; set; }
 
         [Required]
-        public DateTime QuesionDateAndTime { get; set; }
+        public DateTime QuestionDateAndTime { get; set; }
 
         [Required]
         public int CategoryID { get; set; }
     }
 }
+
+
+

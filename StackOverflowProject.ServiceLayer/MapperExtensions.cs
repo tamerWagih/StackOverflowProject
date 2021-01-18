@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using AutoMapper;
 
 namespace StackOverflowProject.ServiceLayer
@@ -12,7 +13,7 @@ namespace StackOverflowProject.ServiceLayer
             {
                 if (map.SourceType.GetProperty(propName) != null)
                 {
-                    expr.ForMember(propName, opt => opt.Ignore());
+                    expr.ForSourceMember(propName, opt => opt.Ignore());
                 }
                 if (map.DestinationType.GetProperty(propName) != null)
                 {
@@ -26,5 +27,6 @@ namespace StackOverflowProject.ServiceLayer
             profile.ForAllMaps(IgnoreUnmappedProperties);
         }
     }
-
 }
+
+

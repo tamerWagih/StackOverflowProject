@@ -22,7 +22,7 @@ namespace StackOverflowProject.ServiceLayer
     }
     public class QuestionsService : IQuestionsService
     {
-        IQuestionsRepository qr;
+        IQuestionRepository qr;
 
         public QuestionsService()
         {
@@ -73,7 +73,7 @@ namespace StackOverflowProject.ServiceLayer
 
         public QuestionViewModel GetQuestionByQuestionID(int QuestionID, int UserID = 0)
         {
-            Question q = qr.GetQuestionsByQuestionID(QuestionID).FirstOrDefault();
+            Question q = qr.GetQuestionByQuestionID(QuestionID).FirstOrDefault();
             QuestionViewModel qvm = null;
             if (q != null)
             {
