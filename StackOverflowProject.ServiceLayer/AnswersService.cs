@@ -11,7 +11,7 @@ using AutoMapper.Configuration;
 
 namespace StackOverflowProject.ServiceLayer
 {
-    public interface IAnswerService
+    public interface IAnswersService
     {
         void InsertAnswer(NewAnswerViewModel avm);
         void UpdateAnswer(EditAnswerViewModel avm);
@@ -21,7 +21,7 @@ namespace StackOverflowProject.ServiceLayer
         AnswerViewModel GetAnswerByAnswerID(int AnswerID);
     }
 
-    public class AnswersService : IAnswerService
+    public class AnswersService : IAnswersService
     {
         IAnswersRepository ar;
 

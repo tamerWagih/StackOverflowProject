@@ -13,7 +13,7 @@ namespace StackOverflowProject.ViewModels
         public string QuestionName { get; set; }
 
         [Required]
-        public DateTime dateTime { get; set; }
+        public DateTime QuestionDateAndTime { get; set; }
 
         [Required]
         public int UserID { get; set; }

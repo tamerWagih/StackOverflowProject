@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using StackOverflowProject.ViewModels;
 using StackOverflowProject.ServiceLayer;
+using StackOverflowProject.CustomFilters;
 
 namespace StackOverflowProject.Controllers
 {
@@ -85,5 +86,68 @@ namespace StackOverflowProject.Controllers
             }
         }
 
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            return RedirectToAction("Index", "Home");
+        }
+
+        [UserAuthorizationFilterAttribute]
+        public ActionResult ChangeProfile()
+        {
+            int uid = Convert.ToInt32(Session["CurrentUserID"]);
+            UserViewModel uvm = this.us.GetUsersByUserID(uid);
+            EditUserDetailsViewModel eudvm = new EditUserDetailsViewModel() { Name = uvm.Name, Email = uvm.Email, Mobile = uvm.Mobile, UserID = uvm.UserID };
+            return View(eudvm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [UserAuthorizationFilterAttribute]
+        public ActionResult ChangeProfile(EditUserDetailsViewModel eudvm)
+        {
+            if (ModelState.IsValid)
+            {
+                eudvm.UserID = Convert.ToInt32(Session["CurrentUserID"]);
+                this.us.UpdateUserDetails(eudvm);
+                Session["CurrentUserName"] = eudvm.Name;
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError("x", "Invalid data");
+                return View(eudvm);
+            }
+        }
+
+        [UserAuthorizationFilterAttribute]
+        public ActionResult ChangePassword()
+        {
+            int uid = Convert.ToInt32(Session["CurrentUserID"]);
+            UserViewModel uvm = this.us.GetUsersByUserID(uid);
+            EditUserPasswordViewModel eupvm = new EditUserPasswordViewModel() { Email = uvm.Email, Password = "", ConfirmPassword = "", UserID = uvm.UserID };
+            return View(eupvm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [UserAuthorizationFilterAttribute]
+        public ActionResult ChangePassword(EditUserPasswordViewModel eupvm)
+        {
+            if (ModelState.IsValid)
+            {
+                eupvm.UserID = Convert.ToInt32(Session["CurrentUserID"]);
+                this.us.UpdateUserPassword(eupvm);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError("x", "Invalid data");
+                return View(eupvm);
+            }
+        }
     }
 }
+
+
+

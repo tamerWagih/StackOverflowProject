@@ -14,7 +14,7 @@ namespace StackOverflowProject.ServiceLayer
     public interface IUsersService
     {
         int InsertUser(RegisterViewModel uvm);
-        void UpdateUserDetails(EditUserDetailsViewmodel uvm);
+        void UpdateUserDetails(EditUserDetailsViewModel uvm);
         void UpdateUserPassword(EditUserPasswordViewModel uvm);
         void DeleteUser(int uid);
         List<UserViewModel> GetUsers();
@@ -109,12 +109,12 @@ namespace StackOverflowProject.ServiceLayer
 
         }
 
-        public void UpdateUserDetails(EditUserDetailsViewmodel uvm)
+        public void UpdateUserDetails(EditUserDetailsViewModel uvm)
         {
-            var config = new MapperConfiguration(cfg => { cfg.CreateMap<EditUserDetailsViewmodel, User>(); cfg.IgnoreUnmapped(); });
+            var config = new MapperConfiguration(cfg => { cfg.CreateMap<EditUserDetailsViewModel, User>(); cfg.IgnoreUnmapped(); });
 
             IMapper mapper = config.CreateMapper();
-            User u = mapper.Map<EditUserDetailsViewmodel, User>(uvm);
+            User u = mapper.Map<EditUserDetailsViewModel, User>(uvm);
 
             ur.UpdateUserDetails(u);
         }

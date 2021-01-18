@@ -6,8 +6,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StackOverflowProject.ViewModels
 {
-    public class EditUserDetailsViewmodel
+    public class EditUserDetailsViewModel
     {
+        public int UserID { get; set; }
+
+
         [Required]
         [RegularExpression(@"(\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,6})")]
 
