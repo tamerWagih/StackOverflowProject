@@ -11,10 +11,10 @@ namespace StackOverflowProject.ViewModels
 
         public int UserID { get; set; }
         public string Email { get; set; }
-        public string Passwrod { get; set; }
+        public string Password { get; set; }
         public string Name { get; set; }
         public string Mobile { get; set; }
-        public bool isAdmin { get; set; }
+        public bool IsAdmin { get; set; }
 
     }
 }
